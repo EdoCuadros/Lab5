@@ -298,7 +298,7 @@ Se utiliza la variable _llamado_ para seleccionar el conjunto de puntos que se l
             print('\n') 
  ```
 ## Video demostrativo del funcionamiento
-[![Mirar el video](https://github.com/EdoCuadros/Lab4/blob/main/images/ros2.png)](https://youtu.be/evDFgF7mxfM)
+[![Mirar el video](Images/img_lab_5.png)](https://youtu.be/evDFgF7mxfM)
 
 ## Conclusiones
 
