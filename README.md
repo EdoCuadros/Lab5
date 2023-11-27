@@ -33,7 +33,7 @@ $$h=106\ldotp 5\\ {mm}$$
 Con este parámetro y la medida del eslabón del robot encontramos el cateto c y el ángulo $\delta \$.
 $$c\;=\sqrt{h^2 -{100}^2 }=36\ldotp 6367\\textrm{mm}$$
 $$\delta =\tan^{-1} \;\left(\frac{c}{100}\right)=20\ldotp 1212\degree$$
-Para continuar con la solución del modelo, se encuentra la longitud del parámetro R para lo cual se debe encontrar la distancia $\dz$.
+Para continuar con la solución del modelo, se encuentra la longitud del parámetro R para lo cual se debe encontrar la distancia $dz$.
 $$\textrm{dz}=z_m -94\ldotp 4\;\textrm{mm}$$
 $$R=\sqrt{x_w^2 +y_w^2 +{\textrm{dz}}^2 }$$
 Conocida esta dimensión, podemos hallar los ángulos internos del triángulo, a través del teorema del coseno.
