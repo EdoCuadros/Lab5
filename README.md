@@ -297,6 +297,8 @@ Se utiliza la variable _llamado_ para seleccionar el conjunto de puntos que se l
             rospy.sleep(3)
             print('\n') 
  ```
+## Video demostrativo del funcionamiento
+[![Mirar el video](https://github.com/EdoCuadros/Lab4/blob/main/images/ros2.png)](https://youtu.be/evDFgF7mxfM)
 
 ## Conclusiones
 
