@@ -28,7 +28,7 @@ la cinemática directa se expresa con la tabla Denavit-Hatenberg.
 
 Para el cálculo de la cinemática inversa se tiene:
 Del manipulador físico se encuentra la distancia 
-$$h=106\ldotp 5\;\textrm{mm}$$ 
+$$h=106\ldotp 5\\textrm{mm}$$ 
 
 
 
@@ -42,7 +42,7 @@ Con este parámetro y la medida del eslabón del robot encontramos el cateto \te
 
 \vspace{1em}
 \begin{par}
-$$c\;=\sqrt{h^2 -{100}^2 }=36\ldotp 6367\;\textrm{mm}$$
+$$c\;=\sqrt{h^2 -{100}^2 }=36\ldotp 6367\\textrm{mm}$$
 \end{par}
 
 
