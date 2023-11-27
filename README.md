@@ -30,7 +30,7 @@ Para el cálculo de la cinemática inversa se tiene:
 Del manipulador físico se encuentra la distancia 
 $$h=106\ldotp 5\\ {mm}$$ 
 
-Con este parámetro y la medida del eslabón del robot encontramos el cateto \textit{\textbf{c }}y el ángulo $\delta \$.
+Con este parámetro y la medida del eslabón del robot encontramos el cateto c y el ángulo $\delta \$.
 $$c\;=\sqrt{h^2 -{100}^2 }=36\ldotp 6367\\textrm{mm}$$
 $$\delta =\tan^{-1} \;\left(\frac{c}{100}\right)=20\ldotp 1212\degree$$
 Para continuar con la solución del modelo, se encuentra la longitud del parámetro \textit{R,  }para lo cual se debe encontrar la distancia \textit{dz.}
