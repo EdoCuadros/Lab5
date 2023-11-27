@@ -11,7 +11,7 @@ Integrantes:
 - Determinar el modelo cinmático inverso del robot _Phantom X_.
 - Generar trayectorias de trabajo a a partir del modelo cinemático inverso del robot.
 - Implementar el modelo cinemático inverso del robot en MATLAB o Python.
-- Operar el robot usando ROS a partir de trayectorias generadas en MATLAB o Python.
+- Operar el robot usando ROS a partir de trayectorias generadas en MATLAB o Python. 
 
 ## Cinemática Inversa
 El problema cinemático inverso consiste en determinar la configuraci´on articular de un manipulador, dadas la posición y orientación del efector final respecto a la base. Este problema puede resolverse mediante m´etodos geométricos, algebraicos o numéricos. En el caso particular del robot Phantom X el cual posee 4 GDL, el enfoque más práctico
