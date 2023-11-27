@@ -17,18 +17,143 @@ Integrantes:
 El problema cinemático inverso consiste en determinar la configuraci´on articular de un manipulador, dadas la posición y orientación del efector final respecto a la base. Este problema puede resolverse mediante m´etodos geométricos, algebraicos o numéricos. En el caso particular del robot Phantom X el cual posee 4 GDL, el enfoque más práctico
 es combinar el método geométrico con el desacople de muñeca.
 
-El modelo del robot está dado por:
-
-![image](https://github.com/EdoCuadros/Lab4/blob/main/images/DH1.png)
-
 la cinemática directa se expresa con la tabla Denavit-Hatenberg.
 
 | Joint | Theta | d | a | alpha |
 | -------- | -------- | -------- | -------- | -------- |
 | 1  | q1     | 0    | 0 | pi/2 |
-| 2  | q2     | 0    | 106.3 | 0 |
-| 3  | q3     | 0    | 99.2 | 0 |
-| 4  | q4     | 0    | 83.2 | 0 |
+| 2  | q2     | 0    | 100 | 0 |
+| 3  | q3     | 0    | 100 | 0 |
+| 4  | q4     | 0    | 100 | 0 |
+
+Del manipulador físico se encuentra la distancia \textit{\textbf{h}}\textit{ }reportada como.
+\end{flushleft}
+\end{par}
+
+
+\vspace{1em}
+\begin{par}
+$$h=106\ldotp 5\;\textrm{mm}$$
+\end{par}
+
+
+\vspace{1em}
+\begin{par}
+\begin{flushleft}
+Con este parámetro y la medida del eslabón del robot encontramos el cateto \textit{\textbf{c }}y el ángulo $\delta \;$.
+\end{flushleft}
+\end{par}
+
+
+\vspace{1em}
+\begin{par}
+$$c\;=\sqrt{h^2 -{100}^2 }=36\ldotp 6367\;\textrm{mm}$$
+\end{par}
+
+
+\vspace{1em}
+\begin{par}
+$$\delta =\tan^{-1} \;\left(\frac{c}{100}\right)=20\ldotp 1212\degree$$
+\end{par}
+
+
+\vspace{1em}
+\begin{par}
+\begin{flushleft}
+Para continuar con la solución del modelo, se encuentra la longitud del parámetro \textit{R,  }para lo cual se debe encontrar la distancia \textit{dz.}
+\end{flushleft}
+\end{par}
+
+
+\vspace{1em}
+\begin{par}
+$$\textrm{dz}=z_m -94\ldotp 4\;\textrm{mm}$$
+\end{par}
+
+
+\vspace{1em}
+\begin{par}
+$$R=\sqrt{x_w^2 +y_w^2 +{\textrm{dz}}^2 }$$
+\end{par}
+
+
+\vspace{1em}
+\begin{par}
+\begin{flushleft}
+Conocida esta dimensión, podemos hallar los ángulos internos del triángulo, a través del teorema del coseno.
+\end{flushleft}
+\end{par}
+
+
+\vspace{1em}
+\begin{par}
+$$\alpha =\cos^{-1} \left(\frac{{100}^2 +r^2 -h^2 }{2\cdot 100\cdot r}\right)$$
+\end{par}
+
+
+\vspace{1em}
+\begin{par}
+$$\beta \;=\cos^{-1} \left(\frac{h^2 +r^2 -{100}^2 }{2\cdot r\cdot h}\right)$$
+\end{par}
+
+
+\vspace{1em}
+\begin{par}
+$$\gamma \;=\cos^{-1} \left(\frac{h^2 +{100}^2 -r^2 }{2\cdot 100\cdot h}\right)$$
+\end{par}
+
+
+\vspace{1em}
+\begin{par}
+\begin{flushleft}
+Con estos ángulos conocidos, se utilizan relaciones geométricas que nos permitan encontrar el valor de los demás ángulos de la figura para de esta forma finalmente encontrar las posiciones angulares de las articulaciones del robot.
+\end{flushleft}
+\end{par}
+
+
+\vspace{1em}
+\begin{par}
+$$\theta =\sin^{-1} \left(\frac{\textrm{dz}}{R}\right)$$
+\end{par}
+
+\begin{par}
+$$\psi =180\degree -\alpha$$
+\end{par}
+
+\begin{par}
+$$\phi =180\degree -\psi -\theta$$
+\end{par}
+
+\begin{par}
+$$\omega =180\degree -\phi$$
+\end{par}
+
+\begin{par}
+$$\kappa =\omega -90\degree$$
+\end{par}
+
+
+\vspace{1em}
+\begin{par}
+\begin{flushleft}
+Con lo que las posiciones angulares de las articulaciones del manipulador se encuentran determinadas por las ecuaciones.
+\end{flushleft}
+\end{par}
+
+
+\vspace{1em}
+\begin{par}
+$$q_2 =90\degree -\theta -\beta -\delta \;$$
+\end{par}
+
+\begin{par}
+$$q_3 =90\degree -\gamma +\delta \;$$
+\end{par}
+
+\begin{par}
+$$q_4 =\kappa -90\degree$$
+\end{par}
+
 ## Ejercicio en el laboratorio
 
 Primero se realiza el modelo de cinemática inversa del robot _Phantom X_. Para esto se usa el _Robotics Toolbox_ de MATLAB. Se realiza la tabla de parámetros Denavit-Hartenberg.
