@@ -17,7 +17,7 @@ Integrantes:
 El problema cinemático inverso consiste en determinar la configuraci´on articular de un manipulador, dadas la posición y orientación del efector final respecto a la base. Este problema puede resolverse mediante m´etodos geométricos, algebraicos o numéricos. En el caso particular del robot Phantom X el cual posee 4 GDL, el enfoque más práctico
 es combinar el método geométrico con el desacople de muñeca.
 
-la cinemática directa se expresa con la tabla Denavit-Hatenberg.
+la cinemática directa se expresa con la tabla Denavit-Hatenberg. 
 
 | Joint | Theta | d | a | alpha |
 | -------- | -------- | -------- | -------- | -------- |
