@@ -17,7 +17,18 @@ Integrantes:
 El problema cinemático inverso consiste en determinar la configuraci´on articular de un manipulador, dadas la posición y orientación del efector final respecto a la base. Este problema puede resolverse mediante m´etodos geométricos, algebraicos o numéricos. En el caso particular del robot Phantom X el cual posee 4 GDL, el enfoque más práctico
 es combinar el método geométrico con el desacople de muñeca.
 
+El modelo del robot está dado por:
+
 ![image](https://github.com/EdoCuadros/Lab4/blob/main/images/DH1.png)
+
+la cinemática directa se expresa con la tabla Denavit-Hatenberg.
+
+| Joint | Theta | d | a | alpha |
+| -------- | -------- | -------- | -------- | -------- |
+| 1  | q1     | 0    | 0 | pi/2 |
+| 2  | q2     | 0    | 106.3 | 0 |
+| 3  | q3     | 0    | 99.2 | 0 |
+| 4  | q4     | 0    | 83.2 | 0 |
 ## Ejercicio en el laboratorio
 
 Primero se realiza el modelo de cinemática inversa del robot _Phantom X_. Para esto se usa el _Robotics Toolbox_ de MATLAB. Se realiza la tabla de parámetros Denavit-Hartenberg.
