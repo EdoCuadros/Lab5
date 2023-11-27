@@ -251,7 +251,7 @@ Se crea un bucle while que se detiene cuando detecta que el robot está desconec
         print("c - Circulo")
         print("n - Minimo")
         print("m - Maximo")
-        print("f - free")
+
         key=input()
         if key == 'r' or key == 'R':
             llamado=qRecoleccion
