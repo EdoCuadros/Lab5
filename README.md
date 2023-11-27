@@ -83,9 +83,96 @@ Rob = SerialLink(L);
 Rob.name = "Phantom X Pitcher"
 Rob.plot([q1 q2 q3 q4],'noa')
  ```
+## Matlab
+Se arpovecha el poder de cómputo de Matlab para generar archivos CSV que almacenen la secuencia de los valores de las articulaciones. Cada línea representa un vector q.
+### Para recoger el marcador:
+```
+px = 140;
+py = -240;
+zp = 80;
+Recoleccion = zeros(6,5);
+Recoleccion(1,:) = q0Op;
+valor=215*sqrt(2)
+zsi=20
+[q1,q2,q3,q4,q5]=phinv(junaferdorilon*cosd(50),-valor*sind(50),110,0.2)
+[q1,q2,q3,q4,q5]=phinv(junaferdorilon*cosd(50-100),-valor*sind(50-100),120,0.2)
+param = [[px,py,zp+100,0.3];[px,py,zp,0.3];[px,py,zp,-0.15];[px,py,zp+100,-0.15]];
+for i = 1:4
+    [q1, q2, q3, q4, q5] = phinv(param(i,1), param(i,2), param(i,3), param(i,4));
+    if(i==1 || i==4)
+        q2=q2+pi/6;
+    end
+    Recoleccion(i+1,:) = [q1, q2, q3, q4, q5];
+end
+Recoleccion(6,:) = q0;
+csvwrite('Recolecccion.csv',Recoleccion);
+```
+### Dejar el marcador
+Se aprevecha la secuencia de recolección pero se organiza de manera inversa
+```
+qDejado = (fliplr(qRecoleccion'))';
+csvwrite('qDejado.csv',qDejado);
+```
+### Triángulo
+```
+Triangle = zeros(length(xT)+4,5);
+Triangle(1,:) = q0;
+Triangle(end,:) = q0;
+zT = 80;
+for i = 2:length(qTriangle)-1
+    if(i==2)
+        param = [xT(1), yT(1), zT+50,-0.15];
+    elseif(i==(length(qTriangle)-1))
+        param = [xT(end), yT(end), zT+50,-0.15];
+    else
+        param = [xT(i-2), yT(i-2), zT,-0.15];
+    end
+
+    [q1, q2, q3, q4, q5] = phinv(param(1,1), param(1,2), param(1,3), param(1,4));
+    if (i==(length(qTriangle)-1))
+        Triangle(i,:) = [q1, q2+pi/6, q3, q4, q5];
+    else
+        Triangle(i,:) = [q1, q2, q3, q4, q5];
+    end
+end
+Triangle;
+csvwrite('Triangle.csv',Triangle)
+```
+### Letras
+```
+Letras = zeros(length(xL)+8,5);
+Letras(1,:) = q0;
+Letras(end,:) = q0;
+zL = 80;
+j = 1;
+for i = 2:length(Letras)-1
+    if((i==2)||(i==(4+5*N))||(i==(6+7*N)))
+        param = [xL(j), yL(j), zL+50,-0.15];
+    elseif((i==(3+5*N))||(i==(5+7*N)))
+        param = [xL(j-1), yL(j-1), zL,-0.15];
+    elseif(i==(length(Letras)-1))
+        param = [xL(end), yL(end), zL,-0.15];
+    else
+        param = [xL(j), yL(j), zL,-0.15];
+        j = j+1;
+    end
+    [q1, q2, q3, q4, q5] = phinv(param(1,1), param(1,2), param(1,3), param(1,4));
+    
+    if((i==(3+5*N))||(i==(5+7*N))||(i==(length(Letras)-1)))
+    Letras(i,:) = [q1, q2+pi/6, q3, q4, q5];
+    else
+    Letras(i,:) = [q1, q2, q3, q4, q5];
+    end
+    
+end
+qLetter;
+csvwrite('Letras.csv',Letras);
+
+```
+
 
 ## Script de Python
-Se crea la función para la cinemática inversa, hayando lso valores de las articulaciones a partir de las coordenadas del TCP.
+Se crea la función para la cinemática inversa, hayando los valores de las articulaciones a partir de las coordenadas del TCP.
 
  ```
 def phinv(x, y, z, q5):
@@ -162,9 +249,6 @@ Se crea un bucle while que se detiene cuando detecta que el robot está desconec
         print("T - Triangulo")
         print("l - Letra")
         print("c - Circulo")
-        print("d - Dots")
-        print("p - Par")
-        print("de - Dejar")
         print("n - Minimo")
         print("m - Maximo")
         print("f - free")
@@ -184,11 +268,6 @@ Se crea un bucle while que se detiene cuando detecta que el robot está desconec
             llamado=qCircle
             indice = 3
             key = ' '
-        elif key == 'd' or key == 'D':
-            llamado=qDots
-            key = ' '
-        elif key == 'p' or key == 'P':
-            llamado=qPar
         elif key == 'de' or key == 'DE':
             llamado=qDejado
         elif key == 'n' or key == 'N':
@@ -196,9 +275,6 @@ Se crea un bucle while que se detiene cuando detecta que el robot está desconec
             key = ' '
         elif key == 'm' or key == 'M':
             llamado = rangoMax()
-            key = ' '
-        elif key == 'f' or key == 'F':
-            llamado = qFree
             key = ' '
         else:
             p1 = [0,0,0,0,-0.15]
