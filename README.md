@@ -26,6 +26,8 @@ la cinemática directa se expresa con la tabla Denavit-Hatenberg.
 | 3  | q3     | 0    | 100 | 0 |
 | 4  | q4     | 0    | 100 | 0 |
 
+![image](https://github.com/EdoCuadros/Lab4/blob/main/images/DH1.png)
+
 Para el cálculo de la cinemática inversa se tiene:
 Del manipulador físico se encuentra la distancia 
 $$h=106\ldotp 5\\ {mm}$$ 
